@@ -23,7 +23,7 @@ public class RecruiterContextFactory : IDesignTimeDbContextFactory<RecruiterMySq
     public RecruiterMySqlContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<RecruiterMySqlContext>();
-        optionsBuilder.UseMySQL(@"Server=192.168.100.127;Database=recruiter;User Id=recruiter;Password=recruiter;");
+        optionsBuilder.UseMySql(@"Server=192.168.100.127;Database=recruiter;User Id=recruiter;Password=recruiter;");
 
         return new RecruiterMySqlContext(optionsBuilder.Options);
     }
