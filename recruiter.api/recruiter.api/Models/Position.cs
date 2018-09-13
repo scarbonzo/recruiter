@@ -9,9 +9,9 @@ public class Position
     public string Title { get; set; }
     public string Project { get; set; }
     public string Notes { get; set; }
-    public int Active { get; set; }
+    public bool Active { get; set; }
 
     public DateTime Created { get; set; }
-    public DateTime Updated { get; set; }
-    public DateTime Closed { get; set; }
+    public DateTime? Updated { get; set; }
+    public DateTime? Closed { get; set; }
 }

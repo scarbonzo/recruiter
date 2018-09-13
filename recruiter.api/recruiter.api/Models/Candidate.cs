@@ -13,10 +13,10 @@ public class Candidate
     public string Phone { get; set; }
     public string Salary { get; set; }
     public string Notes { get; set; }
-    public int Available { get; set; }
+    public bool Available { get; set; }
 
     public DateTime Created { get; set; }
-    public DateTime Updated { get; set; }
+    public DateTime? Updated { get; set; }
 
     public string FullName()
     {

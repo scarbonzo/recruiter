@@ -10,9 +10,9 @@ public class Review
     public Guid CandidateId { get; set; }
     public Guid ReviewerId { get; set; }
 
-    public int Callback { get; set; }
+    public bool Callback { get; set; }
     public List<Rating> Ratings { get; set; }
 
     public DateTime Created { get; set; }
-    public DateTime Updated { get; set; }
+    public DateTime? Updated { get; set; }
 }
