@@ -1,0 +1,14 @@
+c:\vs\recruiter\recruiter.api\recruiter.api\bin\Debug\netcoreapp2.1\recruiter.api.deps.json
+c:\vs\recruiter\recruiter.api\recruiter.api\bin\Debug\netcoreapp2.1\recruiter.api.runtimeconfig.json
+c:\vs\recruiter\recruiter.api\recruiter.api\bin\Debug\netcoreapp2.1\recruiter.api.runtimeconfig.dev.json
+c:\vs\recruiter\recruiter.api\recruiter.api\bin\Debug\netcoreapp2.1\recruiter.api.dll
+c:\vs\recruiter\recruiter.api\recruiter.api\bin\Debug\netcoreapp2.1\recruiter.api.pdb
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.csprojResolveAssemblyReference.cache
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.csproj.CoreCompileInputs.cache
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.RazorAssemblyInfo.cache
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.RazorAssemblyInfo.cs
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.AssemblyInfoInputs.cache
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.AssemblyInfo.cs
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.RazorTargetAssemblyInfo.cache
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.dll
+c:\vs\recruiter\recruiter.api\recruiter.api\obj\Debug\netcoreapp2.1\recruiter.api.pdb
