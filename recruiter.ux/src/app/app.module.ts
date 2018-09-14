@@ -1,0 +1,26 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { PositionComponent } from './position/position.component';
+import { CandidateComponent } from './candidate/candidate.component';
+import { ReviewerComponent } from './reviewer/reviewer.component';
+import { QuestionComponent } from './question/question.component';
+import { ReviewComponent } from './review/review.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    PositionComponent,
+    CandidateComponent,
+    ReviewerComponent,
+    QuestionComponent,
+    ReviewComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
