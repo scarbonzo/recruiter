@@ -12285,11 +12285,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "c:\\vs\\recruiter\\recruiter.api\\recruiter.api\\recruiter.api.csproj",
+      "projectUniqueName": "C:\\VS\\recruiter\\recruiter.api\\recruiter.api\\recruiter.api.csproj",
       "projectName": "recruiter.api",
-      "projectPath": "c:\\vs\\recruiter\\recruiter.api\\recruiter.api\\recruiter.api.csproj",
+      "projectPath": "C:\\VS\\recruiter\\recruiter.api\\recruiter.api\\recruiter.api.csproj",
       "packagesPath": "C:\\Users\\reodice\\.nuget\\packages\\",
-      "outputPath": "c:\\vs\\recruiter\\recruiter.api\\recruiter.api\\obj\\",
+      "outputPath": "C:\\VS\\recruiter\\recruiter.api\\recruiter.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
