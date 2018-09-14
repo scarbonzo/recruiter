@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 [ApiController]
 [Produces("application/json")]
@@ -43,26 +41,7 @@ public class CandidatesController : ControllerBase
             return NotFound("Candidate does not exist!");
     }
 
-    // Delete a candidate from id
-    [HttpDelete]
-    [Route("api/v1/[controller]/{id}")]
-    public ActionResult Delete(Guid id)
-    {
-        var result = _repository.Candidates
-            .Find(id);
-
-        if (result != null)
-        {
-            _repository.Remove(result);
-            _repository.SaveChanges();
-            return Ok(result.Id);
-        }
-        else
-        {
-            return NotFound("Candidate does not exist!");
-        }
-    }
-
+    
     // Create a candidate
     [HttpPost]
     [Route("api/v1/[controller]")]
@@ -90,6 +69,7 @@ public class CandidatesController : ControllerBase
     {
         if (_repository.Candidates.Contains(candidate))
         {
+            candidate.Updated = DateTime.Now;
             _repository.Update(candidate);
             _repository.SaveChanges();
             return Ok(candidate.Id);
@@ -100,6 +80,27 @@ public class CandidatesController : ControllerBase
         }
     }
 
+    // Delete a candidate from id
+    [HttpDelete]
+    [Route("api/v1/[controller]/{id}")]
+    public ActionResult Delete(Guid id)
+    {
+        var result = _repository.Candidates
+            .Find(id);
+
+        if (result != null)
+        {
+            _repository.Remove(result);
+            _repository.SaveChanges();
+            return Ok(result.Id);
+        }
+        else
+        {
+            return NotFound("Candidate does not exist!");
+        }
+    }
+
+    // TESTING
     [HttpGet]
     [Route("api/v1/[controller]/create")]
     public ActionResult CreateCandidate()
