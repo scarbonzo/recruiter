@@ -47,7 +47,8 @@ public class QuestionsController : ControllerBase
     public ActionResult GetPositionQuestions(Guid positionId)
     {
         var query = _repository.Questions
-            .Where(q => q.PositionId == positionId);
+            .Where(q => q.PositionId == positionId)
+            .Where(q => q.Active);
 
         var results = query.ToList();
 
