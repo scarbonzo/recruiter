@@ -1,0 +1,5 @@
+C:\VS\recruiter\recruiter.api\bin\Debug\recruiter.api.dll
+C:\VS\recruiter\recruiter.api\bin\Debug\recruiter.api.pdb
+C:\VS\recruiter\recruiter.api\obj\Debug\docker-compose.dcprojAssemblyReference.cache
+C:\VS\recruiter\recruiter.api\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\VS\recruiter\recruiter.api\obj\Debug\docker-compose.dcproj.CopyComplete

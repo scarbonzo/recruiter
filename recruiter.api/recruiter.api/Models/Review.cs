@@ -12,6 +12,7 @@ public class Review
 
     public bool Callback { get; set; }
     public List<Rating> Ratings { get; set; }
+    public string Notes { get; set; }
 
     public DateTime Created { get; set; }
     public DateTime? Updated { get; set; }

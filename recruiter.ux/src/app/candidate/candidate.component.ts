@@ -3,6 +3,7 @@ import { Review } from './../review';
 import { Component, OnInit } from '@angular/core';
 import { RecruiterService } from '../recruiter.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Rating } from '../rating';
 
 @Component({
   selector: 'app-candidate',
@@ -90,5 +91,28 @@ export class CandidateComponent implements OnInit {
     this._recruiterService
       .getPositionQuestions(this.reviewPositionId)
       .subscribe(resEventsData => (this.reviewQuestions = resEventsData));
+
+    this.newReview.positionId = this.reviewPositionId;
+    this.newReview.candidateId = this.selectedCandidateId;
+    this.newReview.reviewerId = this.selectedReviewerId;
+    this.newReview.callback = false;
+    this.newReview.notes = 'test';
+
+    this.newReview.ratings.push({
+      id: 'aaa',
+      question: 'test',
+      score: 1,
+      notes: 'testing'
+    });
+
+    for (const q of this.reviewQuestions) {
+      this.newReview.ratings.push({
+        id: '',
+        question: q.text,
+        score: 0,
+        notes: ''
+      });
+      this.newReview.notes = q.text;
+    }
   }
 }

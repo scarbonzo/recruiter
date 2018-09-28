@@ -1,8 +1,10 @@
-version: '3'
+version: '3.4'
 
 services:
   recruiter.api:
     image: recruiter.api:dev
+    build:
+      target: base
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_recruiter.api$

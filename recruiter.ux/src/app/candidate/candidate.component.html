@@ -24,37 +24,43 @@
         <div class="row">
           <table class="col s12">
             <thead>
-              <tr>
-                <td class="col s3">Question</td>
-                <td class="col s2">Rating</td>
-                <td class="col s7">Notes</td>
+              <tr class="orange-text">
+                <td style="text-align:center" class="col s3">Question</td>
+                <td style="text-align:center" class="col s2">Rating</td>
+                <td style="text-align:center" class="col s7">Notes</td>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let q of reviewQuestions" class="yellow-text">
-                <td class="col s3">{{q.text}}</td>
-                <td class="col s2"><input class="browser-default" type="range" min="0" max="5"></td>
-                <td class="col s7"><input class="" type="text"></td>
+              <br />
+              <tr *ngFor="let r of newReview.ratings; let i = index" class="yellow-text">
+                <td class="col s3">{{r.question}} {{i}}</td>
+                <td class="col s2"><input [(ngModel)]="r.score" class="browser-default" type="range" min="0" max="5"></td>
+                <td class="col s7"><input [(ngModel)]="r.notes" class="" type="text"></td>
               </tr>
             </tbody>
           </table>
           <div class="row">
             <label for="notes">Notes</label>
-            <input class="yellow-text" type="text" id="notes" name="notes">
+            <input [(ngModel)]="newReview.notes" class="yellow-text" type="text" id="notes" name="notes">
           </div>
           <div class="row">
             <div class="switch col s12">
               <label for="active">Callback?</label>
               <br />
               <label class="white-text">
-                No
-                <input type="checkbox" name="callback" id="callback">
+                <span class="red-text">No</span>
+                <input type="checkbox" [(ngModel)]="newReview.callback" name="callback" id="callback">
                 <span class="lever"></span>
-                Yes
+                <span class="green-text">Yes</span>
               </label>
             </div>
           </div>
         </div>
+        <span>Why... {{newReview.ratings[1].question}} - {{reviewQuestions[1].text}} - {{newReview.ratings.length}}</span>
+        <ul>
+          <li *ngFor="let q of reviewQuestions">{{q.text}}</li>
+        </ul>
+
         <div class="row">
           <div *ngIf="selectedReviewerId != '' && reviewPositionId != ''">
             <div class="row">
