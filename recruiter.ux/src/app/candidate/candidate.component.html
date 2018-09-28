@@ -1,3 +1,195 @@
-<p>
-  candidate works!
-</p>
+<div class="row">
+  <div *ngIf="reviewingResume == true" class="col s12">
+    <div class="card light-blue darken-4 z-depth-3">
+      <div class="card-content white-text">
+        <span class="card-title orange-text text-lighten-2">Candidate Review</span>
+        <div class="row">
+          <div class="col s12 l3">
+            <label for="reviewer">Reviewer</label>
+            <select [(ngModel)]="selectedReviewerId" (ngModelChange)="updateReviewer()" class="browser-default light-blue-text text-darken-4"
+              name="reviewer">
+              <option disabled value="">Existing reviewers.</option>
+              <option *ngFor="let r of reviewers" value="{{r.id}}">{{r.name}}</option>
+            </select>
+          </div>
+          <div class="col s12 l3">
+            <label for="position">Position</label>
+            <select [(ngModel)]="reviewPositionId" (ngModelChange)="getQuestions()" class="browser-default light-blue-text text-darken-4"
+              name="position">
+              <option disabled value="">Existing positions.</option>
+              <option *ngFor="let p of reviewPositions" value="{{p.id}}">{{p.title}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <table class="col s12">
+            <thead>
+              <tr>
+                <td class="col s3">Question</td>
+                <td class="col s2">Rating</td>
+                <td class="col s7">Notes</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let q of reviewQuestions" class="yellow-text">
+                <td class="col s3">{{q.text}}</td>
+                <td class="col s2"><input class="browser-default" type="range" min="0" max="5"></td>
+                <td class="col s7"><input class="" type="text"></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <label for="notes">Notes</label>
+            <input class="yellow-text" type="text" id="notes" name="notes">
+          </div>
+          <div class="row">
+            <div class="switch col s12">
+              <label for="active">Callback?</label>
+              <br />
+              <label class="white-text">
+                No
+                <input type="checkbox" name="callback" id="callback">
+                <span class="lever"></span>
+                Yes
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div *ngIf="selectedReviewerId != '' && reviewPositionId != ''">
+            <div class="row">
+              <div class="col s2">
+                <button (click)="addReview()" class="btn btn-primary">Save Review</button>
+              </div>
+              <div class="col s2">
+                <button (click)="cancelReview()" class="btn red">Cancel Review</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <div class="card light-blue darken-4 z-depth-3">
+      <div class="card-content white-text">
+        <span class="card-title orange-text text-lighten-2">Candidates</span>
+        <div class="row">
+          <div class="col s12 l6">
+            <select [(ngModel)]="selectedCandidateId" (ngModelChange)="updateCandidate()" class="browser-default light-blue-text text-darken-4"
+              name="candidate">
+              <option disabled value="">Existing candidates.</option>
+              <option *ngFor="let c of candidates" value="{{c.id}}">{{c.lastName + ', ' + c.firstName}}</option>
+            </select>
+          </div>
+          <div *ngIf="selectedCandidateId != ''" class="col s12 l6">
+            <button class="waves-effect waves-light btn blue" (click)="reviewResume()">Review Resume</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 l6">
+            <button class="waves-effect waves-light btn green" (click)="createCandidate()">New Candidate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedCandidateId != ''" class="col s6">
+    <div class="card light-blue darken-4 z-depth-3">
+      <div class="card-content white-text">
+        <span class="card-title orange-text text-lighten-2">Candidate Info</span>
+        <div class="row">
+          <div class="col s12 l4">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" required (ngModelChange)="this.candidateEdited = true"
+              [(ngModel)]="selectedCandidate.firstName" name="firstName">
+          </div>
+          <div class="col s12 l4">
+            <label for="middleName">Middle Name</label>
+            <input type="text" class="form-control" id="middleName" (ngModelChange)="candidateEdited = true"
+              [(ngModel)]="selectedCandidate.middleName" name="middleName">
+          </div>
+          <div class="col s12 l4">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" required (ngModelChange)="candidateEdited = true"
+              [(ngModel)]="selectedCandidate.lastName" name="lastName">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 l4">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" (ngModelChange)="this.candidateEdited = true"
+              [(ngModel)]="selectedCandidate.email" name="email">
+          </div>
+          <div class="col s12 l4">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" (ngModelChange)="this.candidateEdited = true"
+              [(ngModel)]="selectedCandidate.phone" name="phone">
+          </div>
+          <div class="col s12 l4">
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" id="salary" (ngModelChange)="this.candidateEdited = true"
+              [(ngModel)]="selectedCandidate.salary" name="salary">
+          </div>
+        </div>
+        <div class="row">
+          <div class="switch col s12">
+            <label for="available">Available?</label>
+            <br />
+            <label>
+              No
+              <input type="checkbox" (ngModelChange)="this.candidateEdited = true" [(ngModel)]="selectedCandidate.available"
+                name="available" id="available">
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 l6">
+            <label for="notes">Notes</label>
+            <input type="text" class="materialize-textarea form-control" id="notes" (ngModelChange)="candidateEdited = true"
+              [(ngModel)]="selectedCandidate.notes" name="notes">
+          </div>
+        </div>
+        <div class="row">
+          <button *ngIf="candidateEdited == true" (click)="saveCandidate()" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="creatingNewCandidate == true" class="col s6">
+    <div class="card light-blue darken-4 z-depth-3">
+      <div class="card-content white-text">
+        <span class="card-title orange-text text-lighten-2">New Candidate Info</span>
+        <div class="row">
+          <form name="form" (ngSubmit)="f.form.valid && addCandidate()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="newCandidate.firstName" #firstName="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+              <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                <div *ngIf="firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" name="lastName" [(ngModel)]="newCandidate.lastName" #lastName="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+              <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                <div *ngIf="firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group col s3">
+              <button class="waves-effect waves-light btn green">Add Candidate</button>
+            </div>
+            <div class="col s3">
+              <button class="waves-effect waves-light btn red" (click)="cancelCreateCandidate()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{newCandidate.firstName}}
+  </div>
+</div>

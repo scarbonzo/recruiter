@@ -12281,9 +12281,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\VS\\recruiter\\recruiter.api\\recruiter.api\\recruiter.api.csproj",
       "projectName": "recruiter.api",
@@ -12339,6 +12336,7 @@
             "version": "[2.1.3, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
